@@ -8,7 +8,7 @@ class App extends Component {
     user: {
       name: '',
       city: '',
-      zipCode: '',
+      // zipCode: '',
     }
   };
   handleNameChange = (event) => {
