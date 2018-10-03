@@ -8,7 +8,7 @@ class App extends Component {
     user: {
       name: '',
       city: '',
-      // zipCode: '',
+      zipCode: '',
     }
   };
   handleNameChange = (event) => {
@@ -29,6 +29,15 @@ class App extends Component {
       }
     });
   }
+  handleZipChange = (event) => {
+    console.log(event.target.value);
+    this.setState({
+      user: {
+        ...this.state.user,
+        zip: event.target.value,
+      }
+    });
+  }
   handleButtonClick = (event) => {
     console.log(this.state);
 
@@ -40,11 +49,12 @@ class App extends Component {
         {/* <Header /> */}
         {JSON.stringify(this.state)}
         <br />
-        {this.state.user.name} is from {this.state.user.city}
+        {this.state.user.name} is from {this.state.user.city}, which has a zip code of {this.state.user.zip}
 
         <br />
         <input value={this.state.user.name} onChange={this.handleNameChange} />
         <input value={this.state.user.city} onChange={this.handleCityChange} />
+        <input value={this.state.user.zip} onChange={this.handleZipChange} />
         <button value={this.state} onClick={this.handleButtonClick} >React</button>
       </div>
     );
